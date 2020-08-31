@@ -1,12 +1,11 @@
 {
-  "name": "play-plane",
+  "name": "tetris",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
   "scripts": {
     "build": "webpack",
-    "serve": "webpack-dev-server --open",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "webpack-dev-server --open"
   },
   "keywords": [],
   "author": "",
