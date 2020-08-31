@@ -1,21 +1,20 @@
-###
-使用vue3都customRenderApi 的俄罗斯方块
 
-###
-安装依赖
+** 使用vue3都customRenderApi 的俄罗斯方块 **
 
-#
+
+1. 安装依赖	
+   
+```javascript
 npm install
-
-###
-启动项目
-
-#
+```
+2. 启动项目
+	
+```javascript
 npm run dev
-
-###
-打包项目
-
-
-#
+```
+3. 打包项目
+	
+```javascript
 npm run build
+```
+
