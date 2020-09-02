@@ -1,4 +1,4 @@
-export const map  = (() => {
+export const mapCode  = (() => {
     var arr = [];
     for(var i = 0; i < 32; i++){
         arr.push([]);

@@ -4,7 +4,6 @@ import { defineComponent, h } from "@vue/runtime-core";
 export default defineComponent({
     setup(props, { emit }) {
         const onClick = () => {
-            console.log(123);
             emit("changePage", "GamePage");
         };
         return {

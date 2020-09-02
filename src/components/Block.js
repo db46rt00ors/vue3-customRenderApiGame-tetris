@@ -5,16 +5,7 @@ import { block_json } from "../data/block.js";
 export default defineComponent({
     props: ["x", "y"],
     setup(props, { emit }) {
-        // window.addEventListener("keydown", (e) => {
-        //   // 按下空格的时候发射子弹
-        //   if (e.code === "Space") {
-        //     emit("attack", {
-        //       x: props.x + 100,
-        //       y: props.y,
-        //     });
-        //   }
-        // });
-
+        const { x, y } = toRefs(props)
         const allType = ["S", "Z", "J", "L", "I", "O", "T"][
             ~~(Math.random() * 7)
         ];
@@ -34,9 +25,9 @@ export default defineComponent({
         // 得到自己的code
         const code = block_json[allType][direction];
         const codeColor = color[allType];
-        return { code, codeColor };
+        return { code, codeColor, x, y };
     },
-    render({ code, codeColor }) {
-        return h("Block", { Block: { code, codeColor } });
+    render({ code, codeColor, x, y }) {
+        return h("Block", { Block: { code, codeColor, x, y } });
     },
 });

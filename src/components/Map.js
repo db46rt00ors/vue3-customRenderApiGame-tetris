@@ -1,14 +1,21 @@
 // 地图
-import { defineComponent, h, ref } from "@vue/runtime-core";
+import { defineComponent, h } from "@vue/runtime-core";
 import { game } from "../Game";
-// import Block from './Block.js'
+import { mapCode } from "../data/map.js";
 export default defineComponent({
-    setup() {},
+    setup() {
+        return {
+            mapCode
+        }
+    },
     render(ctx) {
-        return h("Container", [
-            h("Map", {
-                Map: "0xbfbfbf",
-            }),
-        ]);
+        // console.log(mapCode)
+        return h("Map", {
+            Map: {
+                mapColor: '0xbfbfbf',
+                mapCode: ctx.mapCode,
+            },
+        });
     },
 });
+// 0xbfbfbf

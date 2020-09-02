@@ -1,5 +1,5 @@
 import { createRenderer } from "@vue/runtime-core";
-import { map } from "../data/map.js";
+// import { mapCode } from "../data/map.js";
 import { Text, Container, Graphics } from "pixi.js";
 const renderer = createRenderer({
     createElement(type) {
@@ -30,6 +30,8 @@ const renderer = createRenderer({
     //     return new Text(text);
     // },
     patchProp(el, key, prevValue, nextValue) {
+        console.log(nextValue)
+
         // x y el
         switch (key) {
             case "onClick":
@@ -37,13 +39,13 @@ const renderer = createRenderer({
                 break;
             case "Map":
                 // 横线
-                el.lineStyle(1, nextValue, 1);
-                for (let i = 1; i <= map.length; i++) {
+                el.lineStyle(1, nextValue.mapColor, 1);
+                for (let i = 1; i <= nextValue.mapCode.length; i++) {
                     el.moveTo(0, i * 20);
                     el.lineTo(320, i * 20);
                 }
                 // 竖线
-                for (let j = 1; j <= map[0].length; j++) {
+                for (let j = 1; j <= nextValue.mapCode[0].length; j++) {
                     el.moveTo(j * 20, 0);
                     el.lineTo(j * 20, 540);
                 }
@@ -51,11 +53,12 @@ const renderer = createRenderer({
                 break;
             case "Block":
                 // 根据组件传递来的颜色和砖块数组 来绘制砖块
+                el.clear()
                 el.beginFill(nextValue.codeColor);
                 for (let i = 0; i < 4; i++) {
                     for (let j = 0; j < 4; j++) {
                         if (nextValue.code[i][j] == 1) {
-                            el.drawRect(100 + i * 20, j * 20, 20, 20);
+                            el.drawRect(nextValue.x + i * 20, j * 20+nextValue.y, 20, 20);
                         }
                     }
                 }
